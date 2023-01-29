@@ -14,7 +14,16 @@ body {
   height: 80px;
   background-color: black;
 }
+#book-selector {
+  display: flex;
+  position: absolute;
+  background-color: white;
+  height: 425px;
+  width: 400px;
+  left: -525px;
+}
 #main-board {
+  display: flex;
   position: relative;
   width: 1024px;
   height: 863px;
@@ -61,6 +70,14 @@ td {
   margin-top: 100px;
   background-color: antiquewhite;
   opacity: 0.5;
+}
+#guess-input {
+  display: flex;
+  position: absolute;
+  background-color: white;
+  height: 125px;
+  width: 400px;
+  right: -525px;
 }
 #bottom-box {
   position: absolute;
