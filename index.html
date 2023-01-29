@@ -15,7 +15,17 @@
   <div id="top-banner">TBR Selector</div>
   <div id="main-board">
     <div id="main-board-left">
-      <div id="book-selector"></div>
+      <div id="book-selector">
+        <form class="left-form">
+          <input type="text" id="selector-text" placeholder="Enter book title here...">
+          <input type="button" id="selector-button" value="Enter">
+        </form>
+        <p id="book1">book1</p>
+        <p id="book2">book2</p>
+        <p id="book3">book3</p>
+        <p id="book4">book4</p>
+        <p id="book5">book5</p>
+      </div>
       <table id="left-table">
         <tr>
           <td id="00">A0</td><td id="01">A1</td><td id="02">A2</td><td id="03">A3</td>
@@ -52,7 +62,12 @@
           <td id="44">E4</td><td id="45">E5</td><td id="46">E6</td><td id="47">E7</td>
         </tr>
       </table>
-      <div id="guess-input"></div>
+      <div id="guess-input">
+        <form>
+          <input type="text" id="guess-text" placeholder="A0">
+          <input type="button" id="guess-button" value="Guess">
+        </form>
+      </div>
     </div>
     <div id="bottom-box"></div>
   </div>
