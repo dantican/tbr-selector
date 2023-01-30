@@ -117,6 +117,7 @@ td:hover {
   color: white;
   background-color: black;
   transition: 0.25s;
+  cursor: pointer;
 }
 #guess-button:hover {
   background-color: antiquewhite;
@@ -156,6 +157,7 @@ td:hover {
   color: white;
   background-color: black;
   transition: 0.25s;
+  cursor: pointer;
 }
 #selector-button:hover {
   background-color: antiquewhite;
@@ -171,4 +173,10 @@ div p {
   color: white;
   font-size: 24px;
   font-weight: 700;
+}
+.hit {
+  background: url(book-icon-new.png) no-repeat center center;
+}
+.miss {
+  background: url(x-icon-new.png) no-repeat center center;
 }
