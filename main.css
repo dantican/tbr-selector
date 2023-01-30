@@ -81,6 +81,13 @@ td:hover {
   right: -525px;
 }
 #bottom-box {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 24px;
+  color: black;
+  align-items: center;
+  line-height: 30px;
   position: absolute;
   margin-bottom: 20px;
   bottom: 0px;
@@ -176,7 +183,9 @@ div p {
 }
 .hit {
   background: url(book-icon-new.png) no-repeat center center;
+  font-size: 0px;
 }
 .miss {
   background: url(x-icon-new.png) no-repeat center center;
+  font-size: 0px;
 }

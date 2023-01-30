@@ -12,8 +12,16 @@
     },
 
     displayBookHit: function(location) {
-      
+      var cell = document.getElementById(location);
+      cell.setAttribute("class", "hit");
+    },
+
+    displayXMiss: function(location) {
+      var cell = document.getElementById(location);
+      cell.setAttribute("class", "miss");
     }
   }
 
+view.displayBookHit("23");
+view.displayXMiss("14");
 
