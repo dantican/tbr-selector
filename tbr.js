@@ -34,11 +34,11 @@ var model = {
   bookLength: 3,
   booksFound: 0,
 
-  books: [{locations:["00", "23", "44"], hits:["", "", ""], name: []},
-          {locations:["10", "33", "34"], hits:["", "", ""], name: []},
-          {locations:["32", "46", "37"], hits:["", "", ""], name: []},
-          {locations:["15", "16", "27"], hits:["", "", ""], name: []},
-          {locations:["14", "26", "25"], hits:["", "", ""], name: []}],
+  books: [{locations:[0, 0, 0], hits:["", "", ""], name: []},
+          {locations:[0, 0, 0], hits:["", "", ""], name: []},
+          {locations:[0, 0, 0], hits:["", "", ""], name: []},
+          {locations:[0, 0, 0], hits:["", "", ""], name: []},
+          {locations:[0, 0, 0], hits:["", "", ""], name: []}],
 
   fire: function(guess) {
     for (var i = 0; i < this.numBooks; i++) {
@@ -114,4 +114,65 @@ var model = {
     return false;
   }
 };
+
+var controller = {
+  guesses: 0,
+  processGuesses: function(guess) {
+    var location = parseGuess(guess);
+    if (location) {
+      this.guesses++;
+      var hit = model.fire(location);
+      if (hit && model.booksFound === model.bookLength) {
+        view.displayMessage("That's three hits!!! The next book you wil read is: " + model.books + ".");
+      }
+    }
+  }
+}
+
+function parseGuess(guess) {
+  var alphabet = ["A", "B", "C", "D", "E"];
+  if (guess === null || guess.length !== 2) {
+    alert("Ooops...please enter a letter and number from the board.");
+  }else {
+    var firstChar = guess.charAt(0);
+    var row = alphabet.indexOf(firstChar);
+    var column = guess.charAt(1);
+    if (isNaN(row) || isNaN(column)) {
+      alert("Oops...that is not a valid selection.");
+    }else if (row < 0 || row >= model.boardSize || column < 0 || column >= model.boardSize) {
+        alert("Ooops...that selection is off the board.")
+    } else {
+      return row + column;
+    }
+  }
+  return null; 
+}
+
+function init() {
+  var guessButton = document.getElementById("guess-button");
+  guessButton.onclick = handleGuessButton;
+  var guessInput = document.getElementById("guess-text");
+  guessInput.onkeypress = handleKeyPress;
+  model.generateBookLocation();
+}
+
+function handleKeyPress(e) {
+  var guessButton = document.getElementById("guess-button");
+  if (e.keyCode === 13) {
+    guessButton.click();
+    return false;
+  }
+}
+
+function handleGuessButton() {
+  var guessInput = document.getElementById("guess-text");
+  var guess = guessInput.value;
+  controller.processGuesses(guess);
+  guessInput.value = "";
+}
+
+
+windows.onload = init;
+
+
 
